@@ -7,7 +7,7 @@ environment:
   sdk: ^3.3.1
 
 executables:
-  dart_test_tools: main
+  dart_test_tools: dart_test_tools
 
 # Add regular dependencies here.
 dependencies:
