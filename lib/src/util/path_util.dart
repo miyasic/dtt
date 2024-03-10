@@ -3,7 +3,7 @@ import 'dart:io';
 final currentDirectory = Directory.current;
 
 class PathUtil {
-  static Future<Directory?> findDartProjectRoot({Directory? dir}) async {
+  Future<Directory?> findDartProjectRoot({Directory? dir}) async {
     dir ??= currentDirectory;
     var pubspecFile = File('${dir.path}/pubspec.yaml');
     if (await pubspecFile.exists()) {
@@ -16,7 +16,7 @@ class PathUtil {
     }
   }
 
-  static Future<String?> getPackageName() async {
+  Future<String?> getPackageName() async {
     final projectRoot = await findDartProjectRoot();
     if (projectRoot == null) {
       return null;
@@ -28,7 +28,7 @@ class PathUtil {
     return packageName;
   }
 
-  static Future<List<String>?> findSourcePaths({String? sourceDirPath}) async {
+  Future<List<String>?> findSourcePaths({String? sourceDirPath}) async {
     final projectRoot = await findDartProjectRoot();
     if (projectRoot == null) {
       return null;
@@ -41,5 +41,15 @@ class PathUtil {
       }
     }
     return srcPaths;
+  }
+
+  String? readCoverageTestFile(
+      {String assetPath = 'asset/dart/coverage_test.dart'}) {
+    final coverageTestFile = File(assetPath);
+    if (coverageTestFile.existsSync()) {
+      return coverageTestFile.readAsStringSync();
+    } else {
+      return null;
+    }
   }
 }
