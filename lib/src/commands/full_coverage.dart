@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:dart_test_tools/src/util/path_util.dart';
+import 'package:dtt/src/util/path_util.dart';
 
 class FullCoverage extends Command<int> {
   FullCoverage({PathUtil? pathUtil}) : pathUtil = pathUtil ?? PathUtil();

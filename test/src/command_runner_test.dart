@@ -1,4 +1,4 @@
-import 'package:dart_test_tools/src/command_runner.dart';
+import 'package:dtt/src/command_runner.dart';
 import 'package:test/test.dart';
 
 void main() {

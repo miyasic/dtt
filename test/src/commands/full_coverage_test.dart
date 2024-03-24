@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:dart_test_tools/src/commands/full_coverage.dart';
-import 'package:dart_test_tools/src/util/path_util.dart';
+import 'package:dtt/src/commands/full_coverage.dart';
+import 'package:dtt/src/util/path_util.dart';
 import 'package:mockito/annotations.dart';
 import 'package:test/test.dart';
 import 'package:mockito/mockito.dart';
@@ -20,13 +20,12 @@ void main() {
     });
 
     test('run returns 0 when everything is fine', () async {
-      when(mockPathUtil.getPackageName())
-          .thenAnswer((_) async => 'dart_test_tools');
+      when(mockPathUtil.getPackageName()).thenAnswer((_) async => 'dtt');
       when(mockPathUtil.findSourcePaths()).thenAnswer((_) async => [
-            'dart_test_tools.dart',
+            'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dart_test_tools_base.dart',
+            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile())
@@ -57,8 +56,7 @@ void main() {
     });
 
     test('run returns -1 when findSourcePaths returns null', () async {
-      when(mockPathUtil.getPackageName())
-          .thenAnswer((_) async => 'dart_test_tools');
+      when(mockPathUtil.getPackageName()).thenAnswer((_) async => 'dtt');
       when(mockPathUtil.findSourcePaths()).thenAnswer((_) async => null);
 
       final result = await command.run();
@@ -71,13 +69,12 @@ void main() {
     });
 
     test('run returns -1 when coverageTestFile returns null', () async {
-      when(mockPathUtil.getPackageName())
-          .thenAnswer((_) async => 'dart_test_tools');
+      when(mockPathUtil.getPackageName()).thenAnswer((_) async => 'dtt');
       when(mockPathUtil.findSourcePaths()).thenAnswer((_) async => [
-            'dart_test_tools.dart',
+            'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dart_test_tools_base.dart',
+            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile()).thenAnswer((_) => null);
@@ -95,13 +92,12 @@ void main() {
     });
 
     test('run returns -1 when findDartProjectRoot returns null', () async {
-      when(mockPathUtil.getPackageName())
-          .thenAnswer((_) async => 'dart_test_tools');
+      when(mockPathUtil.getPackageName()).thenAnswer((_) async => 'dtt');
       when(mockPathUtil.findSourcePaths()).thenAnswer((_) async => [
-            'dart_test_tools.dart',
+            'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dart_test_tools_base.dart',
+            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile())

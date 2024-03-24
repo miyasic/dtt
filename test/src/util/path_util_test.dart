@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dart_test_tools/src/util/path_util.dart';
+import 'package:dtt/src/util/path_util.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -31,7 +31,7 @@ void main() {
 
     test('getPackageName should return the package name from pubspec.yaml',
         () async {
-      expect(await pathUtil.getPackageName(), 'dart_test_tools');
+      expect(await pathUtil.getPackageName(), 'dtt');
     });
 
     test('read coverage_test.dart file success', () {

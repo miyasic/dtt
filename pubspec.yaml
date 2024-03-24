@@ -1,13 +1,13 @@
-name: dart_test_tools
+name: dtt
 description: A starting point for Dart libraries or applications.
 version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/miyasic/dtt
 
 environment:
   sdk: ^3.3.1
 
 executables:
-  dart_test_tools: dart_test_tools
+  dtt: dtt
 
 # Add regular dependencies here.
 dependencies:
