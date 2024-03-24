@@ -1,5 +1,5 @@
 name: dtt
-description: A starting point for Dart libraries or applications.
+description: dart test tool
 version: 0.0.1
 repository: https://github.com/miyasic/dtt
 
@@ -9,7 +9,6 @@ environment:
 executables:
   dtt: dtt
 
-# Add regular dependencies here.
 dependencies:
   args: ^2.4.2
   path: ^1.8.0
