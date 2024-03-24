@@ -16,16 +16,27 @@ class FullCoverage extends Command<int> {
   Future<int> run() async {
     final packageName = await pathUtil.getPackageName();
     if (packageName == null) {
+      // dart project内にいない
+      stderr.writeln(
+          'You are not in a Dart project. Please make sure you are in a directory with a pubspec.yaml file or a subdirectory of such a directory.');
       return -1;
     }
+
+    // TODO(miyasic): SourcePathを設定できるようにする
     final paths = await pathUtil.findSourcePaths();
     if (paths == null) {
+      // Sourceのディレクトリが見つけられない。
+      stderr.writeln(
+          'Source directory not found. Ensure you have a "lib" directory in your Dart project and it contains your source files.');
       return -1;
     }
     final imports =
         paths.map((path) => formatPathToImportSentence(path, packageName));
     final coverageTestFile = pathUtil.readCoverageTestFile();
     if (coverageTestFile == null) {
+      // coverage_test.dartが見つからない
+      stderr.writeln(
+          'Coverage test file not found. Ensure you have a "test/coverage_test.dart" file in your Dart project.');
       return -1;
     }
     final output = coverageTestFile.replaceFirst(
@@ -33,6 +44,8 @@ class FullCoverage extends Command<int> {
 
     final projectRoot = await pathUtil.findDartProjectRoot();
     if (projectRoot == null) {
+      // dart project内にいない
+      stderr.writeln('you are not in a dart project.');
       return -1;
     }
     writeCoverageTestFile(output, projectRoot.path);

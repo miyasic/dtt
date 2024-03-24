@@ -25,7 +25,6 @@ void main() {
             'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile())
@@ -74,7 +73,6 @@ void main() {
             'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile()).thenAnswer((_) => null);
@@ -97,7 +95,6 @@ void main() {
             'dtt.dart',
             'src/util/path_util.dart',
             'src/commands/full_coverage.dart',
-            'src/dtt_base.dart',
             'src/command_runner.dart',
           ]);
       when(mockPathUtil.readCoverageTestFile())
